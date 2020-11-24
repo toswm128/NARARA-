@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="DRAW.cSS">
+    <script src="DRAW.JS"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나르샤</title>
+</head>
+<body onload="init()">
+    <div class="head">
+        <div class="headMenu">메뉴1</div>
+        <div class="headMenu">메뉴2</div>
+        <div class="headMenu">메뉴3</div>
+    </div>
+    <div class="tool">
+        <button id="pens"
+        onclick="Pens()">연필</button>
+        <button id="pen"
+        onclick="Pen()">펜</button>
+        <button id="tool"
+        onclick="Tool()">사각형</button>
+        <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">다운로드</a>
+    </div>
+    <CANVAS WIDTH="1080" HEIGHT="720" ID="myCanvas"></CANVAS>
+    <div class="foot">모도리</div>
+</body>
+</html>
