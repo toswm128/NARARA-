@@ -18,8 +18,13 @@
         onclick="Pens()">연필</button>
         <button id="pen"
         onclick="Pen()">펜</button>
-        <button id="tool"
-        onclick="Tool()">사각형</button>
+        <button id="box"
+        onclick="box()">사각형</button>
+        <button id="tri"
+        onclick="tri()">삼각형</button>
+        <button id="cir"
+        onclick="cir()">원</button>
+        <input type="color" id="color" value="#000000" onchange="changeColor()">
         <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">다운로드</a>
     </div>
     <CANVAS WIDTH="1080" HEIGHT="720" ID="myCanvas"></CANVAS>
