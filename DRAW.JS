@@ -2,7 +2,7 @@ let canvas, ctx;
 let pens = document.querySelector("#pens");
 let pen = document.querySelector("#pen");
 let tool = document.querySelector("#tool");
-let color = document.getElementById('color');
+let color = document.querySelector("#color");
 function init() {
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
@@ -61,26 +61,27 @@ function Bdraw(curX, curY) {
     ctx.stroke();
 }
 function Tdraw(curX, curY) {
-    ctx.moveTo(startX, curY);
-    ctx.lineTo(curX, curY);
-    ctx.lineTo((startX-curX)/2+startX, startY);
+    if(curX>startX)
+        ctx.moveTo(Math.abs(startX-curX)/2+startX, startY);
+    else
+        ctx.moveTo(startX-Math.abs(startX-curX)/2, startY);
     ctx.lineTo(startX, curY);
+    ctx.lineTo(curX,curY);
+    ctx.closePath();
     ctx.stroke();
 }
 function Cdraw(curX, curY) {
     ctx.beginPath()
-    ctx.arc(startX,startY,Math.abs(curX-startX)+Math.abs(curY-startY),0,Math.PI * 2);
-    ctx.stroke();
-}
-
-function Todraw(curX,curY){
-    ctx.arc((curX+startX)/2,(curY+startY)/2,curX+curY-startX-startY,0,Math.PI * 2);
+    if(curX>startX && curY>startY)
+        ctx.arc(Math.abs(startX-curX)/2+startX,Math.abs(startY-curY)/2+startY,Math.abs(startX-curX)/2,0,Math.PI * 2);
+    else
+        ctx.arc(startX-Math.abs(startX-curX)/2,startY-Math.abs(startY-curY)/2,Math.abs(startY-curY)/2,0,Math.PI * 2);
     ctx.stroke();
 }
 
 function changeColor(){
-    ctx.strokeStyle = color;
-    alert("색 안빠꿀럐~");
+    ctx.strokeStyle = color.value;
+    alert("dd");
 }
 
 download_img = function(el) {

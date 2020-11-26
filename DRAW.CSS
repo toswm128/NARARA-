@@ -1,11 +1,13 @@
 body{
+    overflow-x: hidden;
     width: 100%;
     height:100%;
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: 10fr 5fr;
-    grid-template-rows:10vh auto 10vh;
+    grid-template-columns: auto 5fr;
+    grid-template-rows:10vh 100vh 10vh;
+    gap:1rem;
     grid-template-areas: 
     "head head"
     "main tool"
@@ -16,9 +18,10 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: yellow;
+    background-color: WHITE;
+    border: 1px solid black;
     width:100%;
-    height:10vh;
+    height:100%;
     grid-area: head;
     /*position: fixed;*/
 }
@@ -145,14 +148,16 @@ body{
 #myCanvas{
     grid-area: main;
     background-color: white;
-    border:1px solid black;
-
+    border: 1px solid black;
+    width:100%;
+    height: 100%;
 }
 .foot{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: yellowgreen;
+    background-color: white;
+    border: 1px solid black;
     width: 100%;
     grid-area: foot;
 }
