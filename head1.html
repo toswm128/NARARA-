@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="head1.cSS">
     <title>Document</title>
 </head>
-<body>
-    1
+<body onload="init()">
+    <div class="form">
+        <div class="tool">
+            <button id="back"
+            onclick="back()">뒤</button>
+            <input type="range" min='1' max='100' id="line" onchange="line()">
+        </div>
+        <div class="tool1">
+            <button id="pens"
+            onclick="Pens()">연필</button>
+            <button id="pen"
+            onclick="Pen()">펜</button>
+            <button id="box"
+            onclick="box()">사각형</button>
+            <button id="tri"
+            onclick="tri()">삼각형</button>
+            <button id="cir"
+            onclick="cir()">원</button>
+            <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">다운로드</a>
+        </div>
+        <div class="tool2">
+            <input type="color" id="color" onchange="changeColor()">
+        </div>
+        <CANVAS WIDTH="1080" HEIGHT="1080" ID="myCanvas"></CANVAS>
+    </div>
+    <script src="DRAW.JS"></script>
 </body>
 </html>
