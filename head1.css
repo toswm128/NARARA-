@@ -2,7 +2,8 @@ body{
     margin:0;
     padding-left:1rem;
     padding-right:1rem;
-    background-color: whitesmoke;
+    padding-top:0.2rem;
+    background-color: rgb(235,235,235);
 }
 
 .form{
@@ -10,13 +11,13 @@ body{
     height: 100%;
     margin:0;
     padding:0;
-    background-color: whitesmoke;
+    background-color: rgb(235,235,235);
     display:grid;
     grid-template-areas:
     "tool  main tool2 "
     "tool1 main tool2"
     "tool1 main tool2";
-    grid-template-columns: 20rem 1fr 20rem;
+    grid-template-columns: 4fr 10fr 4fr;
     grid-template-rows: 5vh 50vh 40vh;
     gap: 1rem;
     
@@ -126,11 +127,12 @@ body{
 
 .tool2{
     grid-area: tool2;
-    width:100%;
+    width:99%;
     height:100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    
 }
 
 #color{
@@ -138,4 +140,20 @@ body{
     height: 7.25rem;
     border:0;
     padding: 0;
+    outline: none;
+}
+#Cbox{
+    width:  3.5rem;
+    height:3.5rem;
+    border:0;
+    padding: 0;
+    background-color: white;
+}
+#CSbox{
+    width: 7rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 1rem;
+    background-color: #6DF2C1;
+    outline: none;
 }

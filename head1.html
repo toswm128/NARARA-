@@ -9,11 +9,8 @@
 <body onload="init()">
     <div class="form">
         <div class="tool">
-            <button id="back"
-            onclick="back()">뒤</button>
-            <button id="front"
-            onclick="front()">앞</button>
-            <input type="range" min='1' max='100' id="line" onchange="line()">
+            <input type="range" min='1' max='100' id="line" onmousemove="line()">
+            <div id="dom">51</div>
         </div>
         <div class="tool1">
             <button id="pens"
@@ -31,7 +28,9 @@
         <div class="tool2">
             <input type="color" id="color" onchange="changeColor()">
             <button id="Cbox" onclick="changeCbox()"></button>
+            <button id="CSbox" onclick="CSbox()">색저장</button>
         </div>
+        
         <CANVAS WIDTH="1080" HEIGHT="1080" ID="myCanvas"></CANVAS>
     </div>
     <script src="DRAW.JS"></script>

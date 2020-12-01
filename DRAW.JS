@@ -4,7 +4,10 @@ let pen = document.querySelector("#pen");
 let tool = document.querySelector("#tool");
 let color = document.querySelector("#color");
 let lineBold = document.getElementById('line');
+let Cbox = document.querySelector("#Cbox");
+let dom = document.getElementById("dom");
 function init() {
+      
     canvas = document.getElementById("myCanvas");
     ctx = canvas.getContext("2d");
  
@@ -37,7 +40,7 @@ let curY = 0;
 
 function Pens(){
     penMode = 1;
-    console.log('펜');
+    console.log(penMode);
 }
 function Pen(){
     penMode = 2;
@@ -114,8 +117,19 @@ function changeColor(){
     ctx.strokeStyle = color.value;
 }
 
+function changeCbox(){
+    ctx.strokeStyle = Cbox.value;
+}
+
+function CSbox(){
+    Cbox.value = color.value;
+    Cbox.style.backgroundColor = color.value;
+}
+
 function line(){
+    console.log("change");
     ctx.lineWidth= lineBold.value;
+    dom.innerHTML = lineBold.value;  
 }
 /*
 function front(){
@@ -251,7 +265,7 @@ function move(e) {
     CSaveLine[i]=curX;
     CSaveLine[i+1]=curY;
     if(penMode===1){
-        Psdraw(curX,curY);
+        Psdraw();
         FSaveLine[i] = CSaveLine[i]; FSaveLine[i+1] = CSaveLine[i+1];
         j++;
     }
