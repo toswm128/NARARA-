@@ -11,6 +11,8 @@
         <div class="tool">
             <button id="back"
             onclick="back()">뒤</button>
+            <button id="front"
+            onclick="front()">앞</button>
             <input type="range" min='1' max='100' id="line" onchange="line()">
         </div>
         <div class="tool1">
@@ -28,6 +30,7 @@
         </div>
         <div class="tool2">
             <input type="color" id="color" onchange="changeColor()">
+            <button id="Cbox" onclick="changeCbox()"></button>
         </div>
         <CANVAS WIDTH="1080" HEIGHT="1080" ID="myCanvas"></CANVAS>
     </div>

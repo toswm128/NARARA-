@@ -113,13 +113,7 @@
             },
             execute(rects) {
             	// rects 배열에 저장 된 도형을 기준으로 다시 캔버스에 그림
-                for (let i = 0; i < rects.length;  i += 1) {
-                    const rect = rects[i];
-                    const { type } = rect;
-                    if (type === 'stroke') this.stroke(rect.coordinates, rect.strokeStyle, rect.lineWidth);
-                    if (type === 'eraser') this.eraser(rect.coordinates, rect.lineWidth);
-                    if (type === 'square') this.square(rect.coordinates, rect.strokeStyle);
-                }
+                
             },
             square(coordinates, color) {
             	// 사각 도형을 그림
@@ -127,11 +121,13 @@
                 const ctx = canvas.getContext('2d');
                 const start = coordinates[0];
                 const end = coordinates[coordinates.length - 1];
+                
                 const [startX, startY] = start;
                 const [endX, endY] = [end[0] - startX, end[1] - startY];
                 ctx.beginPath();
                 ctx.fillStyle = color;
                 ctx.fillRect(startX, startY, endX, endY);
+                console.log(end);
                 ctx.closePath();
             },
         };
