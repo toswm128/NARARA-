@@ -13,22 +13,21 @@
             <div id="dom">51</div>
         </div>
         <div class="tool1">
-            <button id="pens"
-            onclick="Pens()">연필</button>
-            <button id="pen"
-            onclick="Pen()">펜</button>
-            <button id="box"
-            onclick="box()">사각형</button>
-            <button id="tri"
-            onclick="tri()">삼각형</button>
-            <button id="cir"
-            onclick="cir()">원</button>
-            <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">다운로드</a>
+            <button id="pens" class="toolBox"
+            onclick="Pens()" >연필</button>
+            <button id="pen" class="toolBox"
+            onclick="Pen()" >펜</button>
+            <button id="box" class="toolBox"
+            onclick="box()" >사각형</button>
+            <button id="tri" class="toolBox"
+            onclick="tri()" >삼각형</button>
+            <button id="cir" class="toolBox"
+            onclick="cir()" >원</button>
+            <a id="pen" class="toolBox" download="myImage.jpg" href="" onclick="download_img(this);">다운로드</a>
         </div>
         <div class="tool2">
-            <input type="color" id="color" onchange="changeColor()">
+            <input type="color" id="color" onchange="changeColor()" onclick="changeColor()">
             <button id="Cbox" onclick="changeCbox()"></button>
-            <button id="CSbox" onclick="CSbox()">색저장</button>
         </div>
         
         <CANVAS WIDTH="1080" HEIGHT="1080" ID="myCanvas"></CANVAS>

@@ -17,7 +17,7 @@ body{
     "tool  main tool2 "
     "tool1 main tool2"
     "tool1 main tool2";
-    grid-template-columns: 4fr 10fr 4fr;
+    grid-template-columns: 4fr auto 4fr;
     grid-template-rows: 5vh 50vh 40vh;
     gap: 1rem;
     
@@ -68,62 +68,50 @@ body{
     
 }
 
-#pens{
+.toolBox{
     width: 4rem;
     height: 4rem;
     border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
+    border-radius: 50%;
+    background-color: rgb(235,235,235);
+    box-shadow:0.24rem 0.24rem 5px 0px #c2c2c2, -0.24rem -0.24rem 5px 0px white;
     outline: none;
-}
-
-#pen{
-    width: 4rem;
-    height: 4rem;
-    border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
-    outline: none;
-}
-
-#box{
-    width: 4rem;
-    height: 4rem;
-    border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
-    outline: none;
-}
-
-#tri{
-    width: 4rem;
-    height: 4rem;
-    border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
-    outline: none;
-}
-
-#cir{
-    width: 4rem;
-    height: 4rem;
-    border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
-    outline: none;
-}
-
-#download{
-    width: 4rem;
-    height: 4rem;
-    border: 0;
-    border-radius: 1rem;
-    background-color: #6DF2C1;
     text-decoration: none;
     color:black;
-    display: flex;
-    align-items: center ;
+    text-shadow: 1px 1px 0 white;
+    cursor: pointer;
 }
+.toolBox:hover{
+    background-color: rgb(230,230,230);
+}
+.toolBox:active{
+    box-shadow:  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white;
+}
+.toolBox:focus{
+    box-shadow:  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white;
+}
+
+input[type="range"]{
+  
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    border-radius: 1rem;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    cursor: pointer;
+    outline: none;
+    
+}
+
+
+#line{
+    color:black
+}
+
+
 
 .tool2{
     grid-area: tool2;

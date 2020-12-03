@@ -1,7 +1,9 @@
 let canvas, ctx;
-let pens = document.querySelector("#pens");
-let pen = document.querySelector("#pen");
-let tool = document.querySelector("#tool");
+let penss = document.querySelector("#pens");
+let penn = document.querySelector("#pen");
+let boxx = document.querySelector("#box");
+let trii = document.querySelector("#tri");
+let cirr = document.querySelector("#cir");
 let color = document.querySelector("#color");
 let lineBold = document.getElementById('line');
 let Cbox = document.querySelector("#Cbox");
@@ -30,6 +32,7 @@ const FSaveLine = [];
 const CSaveLine = [];
 const BSaveLine = [];
 const lastPan = [];
+const Ccolor = [];
 let i = 0;
 let j = 0;
 let startX=0, startY=0; // 드래깅동안, 처음 마우스가 눌러진 좌표
@@ -37,22 +40,44 @@ let drawing=false;
 let penMode = 1;
 let curX = 0;
 let curY = 0;
+let k = 0;
+
+function toolStyle(){
+    console.log(penMode);
+    /*if(penMode===1)
+    {
+        penss.style.boxShadow=`  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white`;
+        penn.style.boxShadow=` `;
+    }
+    if(penMode===2)
+        penn.style.boxShadow=`  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white`;
+    if(penMode===3)
+        boxx.style.boxShadow=`  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white`;
+    if(penMode===4)
+        trii.style.boxShadow=`  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white`;
+    if(penMode===5)
+        cirr.style.boxShadow=`  inset 2px 2px 5px #c2c2c2, inset -5px -5px 10px white`;*/
+}
 
 function Pens(){
     penMode = 1;
-    console.log(penMode);
+    toolStyle()
 }
 function Pen(){
     penMode = 2;
+    toolStyle()
 }
 function box(){
     penMode = 3;
+    toolStyle()
 }
 function tri(){
     penMode = 4;
+    toolStyle()
 }
 function cir(){
     penMode = 5;
+    toolStyle()
 }
 function Psdraw() {
     ctx.beginPath();
@@ -114,7 +139,10 @@ function Cdraw() {
 }
 
 function changeColor(){
-    ctx.strokeStyle = color.value;
+    Ccolor[k]=color.value
+    ctx.strokeStyle = Ccolor[k];
+    k++;
+    CSbox();
 }
 
 function changeCbox(){
@@ -122,8 +150,8 @@ function changeCbox(){
 }
 
 function CSbox(){
-    Cbox.value = color.value;
-    Cbox.style.backgroundColor = color.value;
+    Cbox.value = Ccolor[k-2];
+    Cbox.style.backgroundColor = Ccolor[k-2];
 }
 
 function line(){
@@ -238,6 +266,12 @@ function down(e) {
 }
 function up(e) {
      drawing = false; 
+     curX = e.offsetX*1.5; 
+     curY = e.offsetY*1.5;
+     CSaveLine[i]=curX;
+     CSaveLine[i+1]=curY;
+     console.log(startX);
+     console.log(penMode);
      if(penMode===5){
         Cdraw(curX,curY);
      }
@@ -251,11 +285,9 @@ function up(e) {
             Pdraw(curX,curY);
     }
     if(penMode===1){
+        Psdraw();
         i+=2;
     }
-    console.log(i);
-    console.log(lastPan[i]);
-    console.log(BSaveLine[i]);
     }
 function move(e) {
     if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
